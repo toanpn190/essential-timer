@@ -5,6 +5,7 @@ const TimerStates = {
 
 let timer = TimerStates.OFF;
 let totalCountdown = 0;
+let audio = new Audio("60832__pogotron__music-box.wav");
 
 let countdownInterval = setInterval(() => {
   let hours = Math.floor(totalCountdown / 3600);
@@ -17,15 +18,30 @@ let countdownInterval = setInterval(() => {
 
   if ((timer === TimerStates.ON) && (totalCountdown > 0)) {
     totalCountdown--;
+    
+    // The first time it reaches 0, alarm sound starts
+    if (totalCountdown === 0) {
+      audio.play();
+    }
   }
 }, 1000);
 
 
 document.addEventListener("DOMContentLoaded", function() {
   let startButton = document.getElementById("timer-start");
+
   startButton.onclick = () => {
-    timer = (timer === TimerStates.ON) ? TimerStates.OFF : TimerStates.ON;
-  }
+    if (timer === TimerStates.OFF) {
+      timer = TimerStates.ON;
+      startButton.innerHTML = "Stop";
+      
+    } else {
+      timer = TimerStates.OFF;
+      totalCountdown = 0;
+      startButton.innerHTML = "Start";
+      audio.load();
+    }
+  };
 
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
