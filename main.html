@@ -13,19 +13,26 @@
 <body>
   <div class="container">
     <div class="row justify-content-center">
-      <h1 id="timer" class="col-md-6">00:00:00</h1>
+      <h1 id="timer">00:00:00</h1>
     </div>
 
     <div class="row justify-content-center">
-      <button type="button" class="btn-lg btn-dark button-add-time">1</button>
-      <button type="button" class="btn-lg btn-dark button-add-time">5</button>
-      <button type="button" class="btn-lg btn-dark button-add-time">10</button>
-      <button type="button" class="btn-lg btn-dark button-add-time">30</button>
+      <div class="btn-group col-10 col-md-6 col-lg-4" role="group">
+        <button type="button" class="col-3 btn-lg btn-dark button-add-time">1</button>
+        <button type="button" class="col-3 btn-lg btn-dark button-add-time">5</button>
+        <button type="button" class="col-3 btn-lg btn-dark button-add-time">10</button>
+        <button type="button" class="col-3 btn-lg btn-dark button-add-time">30</button>
+      </div>
     </div>
 
     <div class="row justify-content-center">
-      <button id="timer-start" type="button" class="btn-lg btn-dark">Start</button>
+      <div class="btn-group col-10 col-md-6 col-lg-4" role="group">
+        <button id="timer-start" type="button" class="col-5 btn-lg btn-dark">Start</button>
+        <button id="sound-test" type="button" class="col-7 btn-lg btn-dark">Sound Test</button>
+      </div>
     </div>
+
+    
       
   </div>
   

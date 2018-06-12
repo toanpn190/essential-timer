@@ -1,9 +1,10 @@
-const TimerStates = {
+const States = {
   OFF: 0,
   ON: 1,
 }
 
-let timer = TimerStates.OFF;
+let timer = States.OFF;
+let testSound = States.OFF;
 let totalCountdown = 0;
 let audio = new Audio("60832__pogotron__music-box.wav");
 
@@ -16,11 +17,12 @@ let countdownInterval = setInterval(() => {
                                              + minutes.toString(10).padStart(2, "0") + ":"
                                              + seconds.toString(10).padStart(2, "0");
 
-  if ((timer === TimerStates.ON) && (totalCountdown > 0)) {
+  if ((timer === States.ON) && (totalCountdown > 0)) {
     totalCountdown--;
     
     // The first time it reaches 0, alarm sound starts
     if (totalCountdown === 0) {
+      audio.load();
       audio.play();
     }
   }
@@ -28,20 +30,34 @@ let countdownInterval = setInterval(() => {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  let startButton = document.getElementById("timer-start");
 
+  // Modifying START/STOP button & reset timer when STOP
+  let startButton = document.getElementById("timer-start");
   startButton.onclick = () => {
-    if (timer === TimerStates.OFF) {
-      timer = TimerStates.ON;
+    if (timer === States.OFF) {
+      timer = States.ON;
       startButton.innerHTML = "Stop";
-      
     } else {
-      timer = TimerStates.OFF;
+      timer = States.OFF;
       totalCountdown = 0;
       startButton.innerHTML = "Start";
-      audio.load();
     }
   };
+
+  // Modifying SOUND TEST/STOP button
+  let soundButton = document.getElementById("sound-test");
+  soundButton.onclick = () => {
+    if (testSound === States.OFF) {
+      testSound = States.ON;
+      soundButton.innerHTML = "Stop";
+      audio.load();
+      audio.play();
+    } else {
+      testSound = States.OFF;
+      soundButton.innerHTML = "Sound Test";
+      audio.pause();
+    }
+  }
 
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
