@@ -8,7 +8,8 @@ let testSound = States.OFF;
 let totalCountdown = 0;
 let audio = new Audio("60832__pogotron__music-box.wav");
 
-let countdownInterval = setInterval(() => {
+
+function changeDisplayTime() {
   let hours = Math.floor(totalCountdown / 3600);
   let minutes = Math.floor((totalCountdown - 3600 * hours) / 60);
   let seconds = Math.floor(totalCountdown - 3600 * hours - 60 * minutes);
@@ -16,6 +17,11 @@ let countdownInterval = setInterval(() => {
   document.getElementById("timer").innerHTML = hours.toString(10).padStart(2, "0") + ":" 
                                              + minutes.toString(10).padStart(2, "0") + ":"
                                              + seconds.toString(10).padStart(2, "0");
+}
+
+
+let countdownInterval = setInterval(() => {
+  changeDisplayTime();
 
   if ((timer === States.ON) && (totalCountdown > 0)) {
     totalCountdown--;
@@ -63,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
   for (let i = 0; i < buttons.length; i++) {
     buttons.item(i).onclick = () => {
       totalCountdown += parseInt(buttons.item(i).innerHTML) * 60;
+      changeDisplayTime();
     };
   }
 });
