@@ -21,11 +21,10 @@ function changeDisplayTime() {
 
 
 let countdownInterval = setInterval(() => {
-  changeDisplayTime();
-
   if ((timer === States.ON) && (totalCountdown > 0)) {
     totalCountdown--;
-    
+    changeDisplayTime();
+
     // The first time it reaches 0, alarm sound starts
     if (totalCountdown === 0) {
       audio.load();
@@ -46,11 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       timer = States.OFF;
       totalCountdown = 0;
+      changeDisplayTime(); // Change display time right away
       startButton.innerHTML = "Start";
     }
   };
 
-  // Modifying SOUND TEST/STOP button
+  // Modify SOUND TEST/STOP button when click on
   let soundButton = document.getElementById("sound-test");
   soundButton.onclick = () => {
     if (testSound === States.OFF) {
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  // Modify time displayed when click on add time buttons
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
     buttons.item(i).onclick = () => {
