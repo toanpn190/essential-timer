@@ -55,12 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
   soundButton.onclick = () => {
     if (testSound === States.OFF) {
       testSound = States.ON;
-      soundButton.innerHTML = "Stop";
       audio.load();
       audio.play();
     } else {
       testSound = States.OFF;
-      soundButton.innerHTML = "Sound Test";
       audio.pause();
     }
   }
