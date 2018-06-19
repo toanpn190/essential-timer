@@ -69,8 +69,10 @@ document.addEventListener("DOMContentLoaded", function() {
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
     buttons.item(i).onclick = () => {
-      totalCountdown += parseInt(buttons.item(i).innerHTML) * 60;
-      changeDisplayTime();
+      if (timer == States.OFF) {
+        totalCountdown += parseInt(buttons.item(i).innerHTML) * 60;
+        changeDisplayTime();
+      }
     };
   }
 });
