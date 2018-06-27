@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Modifying START/STOP button & reset timer when STOP
   let startButton = document.getElementById("timer-start");
   startButton.onclick = () => {
-    if ((timer === States.ON) && (timer === States.OFF)) {
+    if ((timer === States.OFF) && (totalCountdown > 0)) {
       timer = States.ON;
       startButton.innerHTML = "Stop";
     } else {
