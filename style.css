@@ -15,13 +15,13 @@ h1#timer {
 
 #timer-start {
   margin-bottom: 50px;
-  max-width: 400px;
+  max-width: 480px;
   min-height: 60px;
 }
 
 #sound-test {
   margin-bottom: 50px;
-  max-width: 80px;
+  max-width: 480px;
   min-height: 60px;
 
   display: inline-block;
