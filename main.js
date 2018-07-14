@@ -45,8 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       timer = States.OFF;
       totalCountdown = 0;
-      changeDisplayTime(); // Change display time right away
+      changeDisplayTime(); // Change display time back to 0
       startButton.innerHTML = "Start";
+      audio.pause();
     }
   };
 
@@ -55,10 +56,12 @@ document.addEventListener("DOMContentLoaded", function() {
   soundButton.onclick = () => {
     if (testSound === States.OFF) {
       testSound = States.ON;
+      soundButton.innerHTML = "Stop";
       audio.load();
       audio.play();
     } else {
       testSound = States.OFF;
+      soundButton.innerHTML = "Sound Test";
       audio.pause();
     }
   }
