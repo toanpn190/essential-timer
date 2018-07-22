@@ -14,9 +14,10 @@ function changeDisplayTime() {
   let minutes = Math.floor((totalCountdown - 3600 * hours) / 60);
   let seconds = Math.floor(totalCountdown - 3600 * hours - 60 * minutes);
 
-  document.getElementById("timer").innerHTML = hours.toString(10).padStart(2, "0") + ":" 
-                                             + minutes.toString(10).padStart(2, "0") + ":"
-                                             + seconds.toString(10).padStart(2, "0");
+  document.getElementById("timer").innerHTML =
+    hours.toString(10).padStart(2, "0") + ":" 
+    + "<u>"+ minutes.toString(10).padStart(2, "0") + "</u>" + ":"
+    + seconds.toString(10).padStart(2, "0");
 }
 
 
@@ -44,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
       startButton.innerHTML = "Stop";
     } else {
       timer = States.OFF;
-      totalCountdown = 0;
-      changeDisplayTime(); // Change display time back to 0
+      resetTimer();
       startButton.innerHTML = "Start";
       audio.pause();
     }
@@ -66,6 +66,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  // Reset time when click on reset button
+  let resetButton = document.getElementById("reset");
+  resetButton.onclick = () => {
+    if (timer === States.OFF) {
+      resetTimer();
+    }
+  }
+
   // Modify time displayed when click on add time buttons
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
@@ -77,3 +85,11 @@ document.addEventListener("DOMContentLoaded", function() {
     };
   }
 });
+
+
+// Utilities functions
+
+function resetTimer() {
+  totalCountdown = 0;
+  changeDisplayTime();
+}
