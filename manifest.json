@@ -3,7 +3,7 @@
     "name": "Pomodoro Timer",
     "icons": [
       {
-        "src": "./favicon-192x192.png",
+        "src": "./gifavicon-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
@@ -14,6 +14,7 @@
       }
     ],
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
     "background_color": "#046085",
     "theme_color": "#046085"
