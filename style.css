@@ -6,33 +6,40 @@ main {
 
 h1#timer {
   margin: 50px 0;
-  font-size: 168px;
   color: rgb(240, 236, 236);
   text-align: center;
-
+  font-size: 13vh;
   font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #timer-start {
   margin-bottom: 50px;
+  width: 80vw;
   max-width: 480px;
-  height: 60px;
+  height: 14vw;
+  max-height: 60px;
 }
 
 #sound-test {
   margin-bottom: 50px;
+  width: 60vw;
   max-width: 360px;
-  height: 60px;
+  height: 14vw;
+  max-height: 60px;
 }
 
 #reset {
+  width: 20vw;
   max-width: 120px;
-  height:60px;
+  height: 14vw;
+  max-height: 60px;
 }
 
 .button-add-time {
+  width: 20vw;
   max-width: 120px;
-  height: 60px;
+  height: 14vw;
+  max-height: 60px;
 }
 
 button {

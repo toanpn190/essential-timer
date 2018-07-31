@@ -2,8 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Essential Timer</title>
+
+  <title>Pomodoro Timer</title>
+  <link rel="icon" href="favicon.ico">
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -14,6 +17,7 @@
 </head>
 
 <body>
+
   <main class="container-fluid">
     <div class="row justify-content-center">
       <h1 id="timer">00:<u>00</u>:00</h1>
@@ -24,19 +28,19 @@
     </div>
 
     <div class="row justify-content-center">
-      <div class="btn-group col-12 justify-content-center" role="group">
-        <button type="button" class="col-3 btn-lg button-add-time">5</button>
-        <button type="button" class="col-3 btn-lg button-add-time">10</button>
-        <button type="button" class="col-3 btn-lg button-add-time">30</button>
-        <button type="button" class="col-3 btn-lg button-add-time">60</button>
+      <div class="btn-group justify-content-center" role="group">
+        <button type="button" class="btn-lg button-add-time">5</button>
+        <button type="button" class="btn-lg button-add-time">10</button>
+        <button type="button" class="btn-lg button-add-time">30</button>
+        <button type="button" class="btn-lg button-add-time">60</button>
       </div>
     </div>
 
     <div class="row justify-content-center">
-        <button id="sound-test" type="button" class="col-9 btn-lg">
+        <button id="sound-test" type="button" class="btn-lg">
           Sound Test
         </button>
-        <button id="reset" type="button" class="col-3 btn-lg">
+        <button id="reset" type="button" class="btn-lg">
           <i class="material-icons">autorenew</i>
         </button>
       </div>
