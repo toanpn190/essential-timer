@@ -24,20 +24,8 @@ const States = {
 let timer = States.OFF;
 let testSound = States.OFF;
 let totalCountdown = 0;
-let audio = new Audio("60832__pogotron__music-box.wav");
-
-
-function changeDisplayTime() {
-  let hours = Math.floor(totalCountdown / 3600);
-  let minutes = Math.floor((totalCountdown - 3600 * hours) / 60);
-  let seconds = Math.floor(totalCountdown - 3600 * hours - 60 * minutes);
-
-  document.getElementById("timer").innerHTML =
-    hours.toString(10).padStart(2, "0") + ":" 
-    + "<u>"+ minutes.toString(10).padStart(2, "0") + "</u>" + ":"
-    + seconds.toString(10).padStart(2, "0");
-}
-
+let audio = new Audio("Mp3-alarm-clock.mp3");
+audio.loop = true;
 
 let countdownInterval = setInterval(() => {
   if ((timer === States.ON) && (totalCountdown > 0)) {
@@ -54,8 +42,10 @@ let countdownInterval = setInterval(() => {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
-  // Modifying START/STOP button & reset timer when STOP
+  //
+  // Add behaviors for buttons
+  //
+  
   let startButton = document.getElementById("timer-start");
   startButton.onclick = () => {
     if ((timer === States.OFF) && (totalCountdown > 0)) {
@@ -69,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 
-  // Modify SOUND TEST/STOP button when click on
   let soundButton = document.getElementById("sound-test");
   soundButton.onclick = () => {
     if (testSound === States.OFF) {
@@ -84,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Reset time when click on reset button
   let resetButton = document.getElementById("reset");
   resetButton.onclick = () => {
     if (timer === States.OFF) {
@@ -92,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Modify time displayed when click on add time buttons
   let buttons = document.querySelectorAll(".button-add-time");
   for (let i = 0; i < buttons.length; i++) {
     buttons.item(i).onclick = () => {
@@ -105,7 +92,19 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+//
 // Utilities functions
+//
+function changeDisplayTime() {
+  let hours = Math.floor(totalCountdown / 3600);
+  let minutes = Math.floor((totalCountdown - 3600 * hours) / 60);
+  let seconds = Math.floor(totalCountdown - 3600 * hours - 60 * minutes);
+
+  document.getElementById("timer").innerHTML =
+    hours.toString(10).padStart(2, "0") + ":" 
+    + "<u>"+ minutes.toString(10).padStart(2, "0") + "</u>" + ":"
+    + seconds.toString(10).padStart(2, "0");
+}
 
 function resetTimer() {
   totalCountdown = 0;

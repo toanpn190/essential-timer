@@ -1,3 +1,7 @@
+body {
+  font-family: 'Roboto', 'Droid Sans', sans-serif;
+}
+
 main {
   background: radial-gradient(circle at top, rgb(0, 18, 26), rgba(4, 96, 133, 0.6));
   height: 100vh;
@@ -9,7 +13,6 @@ h1#timer {
   color: rgb(240, 236, 236);
   text-align: center;
   font-size: 13vh;
-  font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #timer-start {
